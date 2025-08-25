@@ -81,11 +81,11 @@ CREATE TABLE Treinos (
     PersonalID INT NOT NULL,
     DataHoraInicio TIMESTAMP NOT NULL,
     DataHoraFim TIMESTAMP NOT NULL,
-    Desempenho VARCHAR(20) CHECK (Desempenho IN ('Acima da média', 'Na média', 'Abaixo da média')),
+    Desempenho INT CHECK (Desempenho BETWEEN 1 AND 10),
     Observacoes TEXT,
     Ativo BOOLEAN DEFAULT TRUE,
     CONSTRAINT fk_treino_aluno FOREIGN KEY (AlunoID) REFERENCES Alunos(AlunoID),
-    CONSTRAINT fk_treino_personal FOREIGN KEY (PersonalID) REFERENCES PersonalTrainers(PersonalID)
+    CONSTRAINT fk_treino_personal FOREIGN KEY (PersonalID) REFERENCES PersonalTrainers(PersonalID) 
 );
 
 -- ================================
